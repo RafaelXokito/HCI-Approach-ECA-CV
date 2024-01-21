@@ -110,46 +110,6 @@ The capability to deliver accurate and meaningful responses to user requests is 
 
 Similarly, a retrieval-based model queries a pre-constructed conversation repository and uses NNs to choose the response that best matches the input. This approach, although better than the first by replacing human-made rules with AI techniques, still suffers from the issue of a static conversation repository where the responses are predefined \cite{ramesh_survey_2017}. A generative-based approach uses NLP algorithms to extract the interaction's intent, entities, and context from the user's inputs while employing advanced AI techniques for text generation therefore providing consecutive unique responses, with the only downside of implementation complexity due to requiring a considerable portion of training and testing data \cite{ramesh_survey_2017}.
 
-\section{Datasets}
-\label{sec:datasets}
-
-\begin{table}[htb]
-    \scriptsize
-    \centering
-    \caption{Mostly used emotion recognition datasets.}
-    \label{tab:selected_datasets}
-    \begin{tabular}{c p{1.4cm} p{1.4cm} l l l p{4cm} p{1.3cm}}
-        \toprule
-        Expression & Database & \makecell{Posed/\\In the wild} & \makecell{Images/\\Videos} & Type & Subjects & Expressions \\
-        \midrule
-        % Macro-Expressions
-        \multirow{6}{*}{\rotatebox[origin=c]{90}{Facial Macro}}
-        & FER-2013 \cite{Goodfellow2013} & in the wild & 35,000 images & gray & - & angry, disgust, fear, happy, sad, surprise, neutral \\
-        & CK+ \cite{Lucey2010} & posed & 593 images & mostly gray & 123 & neutral, sadness, surprise, happiness, fear, anger, contempt, disgust \\
-        & RAF-DB \cite{Li2017} & in the wild & 29,000 images & color & 300+ & anger, disgust, fear, happiness, sadness, surprise, neutral \\
-        & Aff-Wild2 \cite{Kollias2018} & in the wild & 2,800,000 & color & 458 & neutral, happiness, sadness, surprise, fear, disgust, anger + valence–arousal + action units 1,2,4,6,12,15,20,25 \\
-        % Micro-Expressions
-        \hline \\ \multirow{2}{*}{\rotatebox[origin=c]{90}{Facial Micro}} % This is here by format issues
-        & CASME \cite{Yan2013} & posed & 195 images & color & 19 & amusement, sadness, disgust, surprise, contempt, fear, repression, tense \\
-        & CASME II \cite{Yan2014} & posed & 247 images & color & 26 & happiness, disgust, surprise, repression, and others \\ \\
-        \hline \\ \multirow{1}{*}{\rotatebox[origin=c]{90}{Gestures}}
-        % Gestures Expressions
-        & MHHRI \cite{Celiktutan2019} & posed & 48 videos & color & 18 & self-/acquaintance-assessed personality, self-reported engagement \\ \\ \\
-        % Static Poses Expressions
-        \hline \\ \multirow{1}{*}{\rotatebox[origin=c]{90}{\makecell{Static\\Poses}}} 
-        & EMOTIC \cite{Kosti2017} & in the wild & 18,313 images & color & 18 & anger, fatigue, fear, happiness, sadness, pain, confidence, and others \\ \\
-        \hline
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-% Introduce the main datasets used.
-
-\section{Methods}
-\label{sec:methods}
-
-% Introduce the main methods used.
-
 \section{Proposed solution}
 \label{sec:solution}
 
