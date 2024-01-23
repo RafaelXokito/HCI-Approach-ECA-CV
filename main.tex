@@ -113,9 +113,20 @@ Similarly, a retrieval-based model queries a pre-constructed conversation reposi
 \section{Proposed solution}
 \label{sec:solution}
 
+% Introduction of the proposed  solution:
+% 	[X] - Briefly restate the problem your solution aims to solve.
+% 	[-] - Introduce your multi-modal deep learning approach, emphasizing its novelty and potential benefits.
+% It's missing we emphasise the novelty and the potential benefits
 Empathy is a fundamental trait in ensuring realistic, natural, and meaningful interactions in the field of HCI, therefore this section will delve into the proposed HCI approach architecture consisting of six modules as detailed in Figure \ref{fig:approachArchitecture}. Early emotion recognition mainly focused on text or facial features alone, however, relying on any of these fields separately is not sufficient to extract the sentiments expressed by humans, hence leading to a multimodal emotion recognition, where multiple modalities (text, audio, and video) are analyzed simultaneously to better capture human emotions,  moreover using a fusion model to aggregate each the emotion obtained from each module to a final emotion \cite{zhu_multimodal_2023}.
 
-In the proposed architecture, the emotion detection process then begins with textual or audio data captured in continuously and real time from interactions with the CA. When present, the textual data is passed on to the SA network to obtain the sentiment conveyed in the textual input. Nowadays, emotion detection regarding textual data is shifting from the early key-word comparisons to ML (SVM, Naive Bayes, Maximum Entropy) and DL algorithms (CNN, ensemble of CNNs) and NNs (LSTM, DNNs), and even hybrid approaches \cite{hung_beyond_2023}, which any could be chosen as the SA network.
+% "relying on any of these fields separately is not sufficient to extract the sentiments expressed by humans" -> Eu não diria que não seja suficiente assim, eu diria, que devido aos desafios que estão a ser encarados nestes métodos singularmente (citação necessária), então propomos uma arquitetura que ambiciona contribuir para a solução desse problema. E depois ", hence leading to a multimodal emotion recognition".
+
+% Overview of the Multi-modal System:
+% 	[-] - Describe the overall architecture of your system.
+% 		Here we could address where the data could be gathered from (several possibilities).
+% 	[-] - Explain how it integrates different modalities (speech spectrogram, transcribed text, facial and body information) for emotion detection.
+%		It would be nice to emphasise deeply that we want to gather the spectrogram from the speech, that we are detecting Macro-Facial Emotions.
+In the proposed architecture, the emotion detection process then begins with textual or audio data captured in continuously and real time from interactions with the CA. When present, the textual data is passed on to the SA network to obtain the sentiment conveyed in the textual input. Nowadays, emotion detection regarding textual data is shifting from the early key-word comparisons to ML (SVM, Naive Bayes, Maximum Entropy) and DL algorithms (CNN, ensemble of CNNs) and NNs (LSTM, DNNs), and even hybrid approaches \cite{hung_beyond_2023}, which any could be chosen as the SA network. % What is SA network??? The two paragraphs bellow could be merged in this paragraph and then talk about the fusion.
 
 Moreover, the speech input could be transcribed using a Speech-To-Text technique and be analyzed as well by the SA network whereas the speech itself could go through the SER network to analyze the speech's para-linguistic information e.g. intonation, duration, prosody, pitch, rhythm among others.
 
@@ -123,7 +134,31 @@ On the other hand, the video input data, obtained from the CV algorithm that wou
 
 The final stage to obtain a congregated emotion implies the usage of fusion models e.g. a late fusion model (also known as decision-level fusion) where firstly the emotion predictions are obtained from each network, and then the results based on these predictions are integrated into the final result through different decision-making methods e.g. average, majority, weighted, or other statistical strategies, this approach is usually lightweight, flexible, and versatile to change in modalities \cite{zhu_multimodal_2023}.
 
-% todo - tempory until final diagram arrives
+% Detailed Description of Each Module (Suggested methods, using kinda a Related Work of the topic it self):
+% 	[] - Speech Spectrogram Analysis:
+%		[] - Explain how you will process and analyze speech spectrograms for emotion detection.
+%		[] - Discuss the type of deep learning models suitable for this task.
+% 	[] - Sentiment Analysis Analysis:
+%		[] - Describe the process of speech-to-text transcription.
+%		[] - Elaborate on the techniques (like NLP algorithms) to analyze the transcribed text for emotional cues.
+% 	[] - Facial and Body Information Analysis:
+%		[] - Detail the methods for extracting facial and body features from video data.
+%		[] - Explain the types of computer vision and deep learning techniques used for emotion recognition from these features.
+
+% Fusion Network for Emotion Detection:
+% 	[] - Describe how the outputs from the individual modules will be integrated.
+% 	[] - Discuss the design of the fusion network, including how it manages and weighs inputs from different sources.
+% 	[] - Explain the rationale for the chosen fusion method (e.g., weighted averaging, feature concatenation, decision-level fusion).
+
+% Potential Challenges and Solutions:
+% 	[] - Acknowledge potential challenges in implementing your proposed solution (e.g., data synchronization, dealing with ambiguous or conflicting signals from different modalities).
+% 	[] - Suggest possible solutions or mitigations for these challenges.
+
+% Expected Outcomes and Benefits:
+% 	[] - Highlight what you expect the system to achieve in terms of accuracy and efficiency in emotion detection.
+% 	[] - Discuss the potential applications and benefits of your approach in various domains (like HCI, psychology, user experience research).
+
+% todo - temporary until final diagram arrives :)
 \begin{figure}[htb]
 	\centering
 	\includegraphics[width=0.97\linewidth]{approachArchitecture.png}
