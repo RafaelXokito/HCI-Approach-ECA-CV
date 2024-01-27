@@ -126,13 +126,17 @@ Upon the capture of interaction with the user, the textual input obtained from a
 % SA & SER
 As previously detailed, the system could gather the speech or textual data resulting from ongoing, real-time, interactions with the conversational agent, complementing this, visual data could be obtained from the camera embedded in the mobile device, either in real-time or in video, capturing facial and body pose information. Hence, the multimodal ER module analyzes in parallel all the present modalities, starting with textual data being analyzed by an SA model to obtain the sentiment conveyed in the textual input, following preprocessing, feature extraction, and classification steps. Nowadays, SA is shifting from the early key-word comparisons approach to the adoption of ML (Support Vector Machines (SVM), Naive Bayes, Maximum Entropy), DL algorithms (CNN, ensemble of CNNs) and NNs (LSTM, DNNs), and even hybrid approaches \cite{hung_beyond_2023}.
 
-
-
 On the other hand, the speech input can be transcribed and analyzed with ASR algorithms, including deep learning techniques such as Hidden Markov Models (HMMs), Support Vector Machines (SVM), various types of Artificial Neural Networks (ANNs) such as Radial basis functions (RBF), Recurrent Neural Networks (RNNs), and Convolutional Neural Networks (CNNs), employed to extract para-linguistic information, such as intonation, duration, prosody, pitch, and rhythm, from the speech signal \cite{malik_automatic_2021}.
 
 On the other hand, the video input data, obtained from the CV algorithm that would capture,  also continuously and in real time, the user's macro-facial expressions and body pose are passed on to a FER network and BER to further extract the emotional data conveyed in both input types.
 
 The final stage to obtain a congregated emotion implies the usage of fusion models e.g. a late fusion model (also known as decision-level fusion) where firstly the emotion predictions are obtained from each network, and then the results based on these predictions are integrated into the final result through different decision-making methods e.g. average, majority, weighted, or other statistical strategies, this approach is usually lightweight, flexible, and versatile to change in modalities \cite{zhu_multimodal_2023}.
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.97\linewidth]{approachArchitecture.jpg}
+	\caption{Multimodal emotion recognition framework using a branching neural network and large language model for enhanced empathic response in human-computer interaction}
+	\label{fig:approachArchitecture}
+\end{figure}
 
 % Overview of the Multi-modal System:
 % 	[-] - Describe the overall architecture of your system.
@@ -164,14 +168,6 @@ The final stage to obtain a congregated emotion implies the usage of fusion mode
 % Expected Outcomes and Benefits:
 % 	[] - Highlight what you expect the system to achieve in terms of accuracy and efficiency in emotion detection.
 % 	[] - Discuss the potential applications and benefits of your approach in various domains (like HCI, psychology, user experience research).
-
-% todo - temporary until final diagram arrives :)
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.97\linewidth]{approachArchitecture.png}
-	\caption{HCI approach modules.}
-	\label{fig:approachArchitecture}
-\end{figure}
 
 % description of characteristics
 % prototype ???

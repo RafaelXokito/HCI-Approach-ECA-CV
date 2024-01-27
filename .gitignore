@@ -313,3 +313,29 @@ TSWLatexianTemp*
 *.glstex
 
 # End of https://www.toptal.com/developers/gitignore/api/latex
+Solution_files/tex.js
+Solution_files/tex(1).js
+Solution_files/svg.js
+Solution_files/stencils.min.js
+Solution_files/startup.js
+Solution_files/shapes-14-6-5.min.js
+Solution_files/safe.js
+Solution_files/pusher.min.js
+Solution_files/props.js
+Solution_files/OneDrive.js
+Solution_files/maximize.gif
+Solution_files/grapheditor.css
+Solution_files/extensions.min.js
+Solution_files/dropins.js
+Solution_files/Dropbox-sdk.min.js
+Solution_files/core.js
+Solution_files/common.css
+Solution_files/cb=gapi.loaded_0
+Solution_files/asciimath.js
+Solution_files/approachArchitecture.jpg
+Solution_files/app.min.js
+Solution_files/api.js
+.$CNNArchitecture.drawio.bkp
+.$CNNArchitecture.drawio.dtmp
+.$Solution.drawio.bkp
+main.pdf
