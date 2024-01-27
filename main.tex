@@ -117,10 +117,18 @@ Similarly, a retrieval-based model queries a pre-constructed conversation reposi
 % 	[X] - Briefly restate the problem your solution aims to solve.
 % 	[-] - Introduce your multi-modal deep learning approach, emphasizing its novelty and potential benefits.
 % It's missing we emphasise the novelty and the potential benefits
+
 Empathy is a fundamental trait in ensuring realistic, natural, and meaningful interactions in the field of HCI, therefore this section will delve into the proposed HCI approach architecture consisting of six modules as detailed in Figure \ref{fig:approachArchitecture}. Early emotion recognition mainly focused on text or facial features alone, however, humans express emotions in a highly complex way, depending on both verbal and non-verbal cues like facial expression, behavior, voice, text, and physiological signals \cite{ezzameli_emotion_2023}~\cite{zhu_multimodal_2023}. Therefore, this article proposes an architecture, for mobile devices, to diminish this issue, composed of a CA module, to interact continuously with the user, and a multimodal emotion recognition module, where multiple modalities (text, audio, and video) are analyzed simultaneously with DL algorithms to better recognize human emotions and gathered together to a final emotion using a fusion model which capitalizes on the strengths of each modality and compensates for potential limitations in individual modalities. Therefore, an implementation of our proposed architecture can lead to a more engaging, empathic, and natural conversational experience with a more robust and accurate emotion recognition while being suitable for applications where natural communication involves text, speech, or visual cues simultaneously.
 
 % CA module
 Upon the capture of interaction with the user, the textual input obtained from a chat section (although if obtained as speech from the microphone it must be first converted to text using automatic speech recognition (ASR) algorithm aided with the speech spectrogram) is passed on to the NLP stage, where the input goes to some pre-processing stages such as segmentation, tokenization, lemmatization, and PoS tagging. Then, the processed data is passed through the Natural Language Understanding (NLU) stage, to extract the intents and entities while turning the pre-processed data into a structured representation. Afterward, the data is passed on to the Dialogue Management stage, which aims to maintain and incorporate the context of the current and past conversations \cite{rizou_multilingual_2022}. Finally, by analyzing the contextual data, the structured representation of the user's input, and the emotion obtained from the fusion model, the Large Language Model (LLM) provides an accurate response which is converted into a user-readable format and presented back to the user.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.97\linewidth]{approachArchitecture.jpg}
+	\caption{Multimodal emotion recognition framework using a branching neural network and large language model for enhanced empathic response in human-computer interaction}
+	\label{fig:approachArchitecture}
+\end{figure}
 
 % Overview of the Multi-modal System:
 % 	[-] - Describe the overall architecture of your system.
@@ -157,14 +165,6 @@ The final stage to obtain a congregated emotion implies the usage of fusion mode
 % Expected Outcomes and Benefits:
 % 	[] - Highlight what you expect the system to achieve in terms of accuracy and efficiency in emotion detection.
 % 	[] - Discuss the potential applications and benefits of your approach in various domains (like HCI, psychology, user experience research).
-
-% todo - temporary until final diagram arrives :)
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.97\linewidth]{approachArchitecture.png}
-	\caption{HCI approach modules.}
-	\label{fig:approachArchitecture}
-\end{figure}
 
 % description of characteristics
 % prototype ???
