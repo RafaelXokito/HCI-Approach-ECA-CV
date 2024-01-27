@@ -119,22 +119,28 @@ Empathy is a fundamental trait in ensuring realistic, natural, and meaningful in
 
 % Overview of the Multi-modal System:
 % 	[-] - Describe the overall architecture of your system.
-% 		Here we could address where the data could be gathered from (several possibilities).
+% 		Here we could address where the data could be gathered from (real-time video and audio input, video data, both in a context of a conversational agent).
+%		The visual data is composed by several frames, which serves as input in the Temporal Macro-Facial Emotion Recognition, and Temporal Body Emotion Recognition neural networks.
 % 	[-] - Explain how it integrates different modalities (speech spectrogram, transcribed text, facial and body information) for emotion detection.
 %		It would be nice to emphasise deeply that we want to gather the spectrogram from the speech, that we are detecting Macro-Facial Emotions, that its needed to perform a Speech-to-Text and then sentiment analysis.
+%		It's necessary to normalise which emotions will be detected, and only in the implementation phase can be addressed.
+%		The Fusion NN will return a single emotion, from the aggregation of the four NNs context-based emotion results.
+
+% SA & SER
+As previously detailed, the system could gather the visual and speech or textual data resulting from either in real-time or in video. Hence, the multimodal ER module analyzes in parallel all the present modalities, starting with textual data being analyzed by an SA model to obtain the sentiment conveyed in the textual input, following preprocessing, feature extraction, and classification steps. Nowadays, SA is shifting from the early key-word comparisons approach to the adoption of machine learning (Support Vector Machines (SVM), Naive Bayes, Maximum Entropy), deep learning algorithms (CNN, ensemble of CNNs) and NNs (LSTM, DNNs), and even hybrid approaches \cite{hung_beyond_2023}.
+
+On the other hand, the speech input can be transcribed and analyzed with ASR algorithms, including deep learning techniques such as Hidden Markov Models (HMMs), Support Vector Machines (SVM), several types of Artificial Neural Networks (ANNs) such as Radial basis functions (RBF), Recurrent Neural Networks (RNNs), and Convolutional Neural Networks (CNNs), employed to extract para-linguistic information, such as intonation, duration, prosody, pitch, and rhythm, from the speech signal \cite{malik_automatic_2021}.
+
+% FER e BER (In BER context, there's no guarantee of the presence of the whole body in every input (dataset, and in real-life environment), so the predictions could vary based on that.)
+% In the context of FER and BER could be used only the facial and body landmarks (as a sequence, because of the temporal information). Or the whole frames information using, with a more complex and heavy but with excellent result NN.
+% In both NN shall be present a LSTM layer, or ViT layer.
+On the other hand, the visual data, obtained from computer vision, the user's macro-facial expressions and body pose are passed on to a FER network and BER to further extract the emotional data conveyed in both input types.
+
+% Its expected that the fusion method gives more relevance to some data then to other. Because some will be more reliable than other, but the expectations is all as one result in better results. 
+The final stage to obtain a congregated emotion implies the usage of fusion models e.g. a late fusion model (also known as decision-level fusion) where firstly the emotion predictions are obtained from each network, and then the results based on these predictions are integrated into the final result through different decision-making methods e.g. average, majority, weighted, or other statistical strategies, this approach is usually lightweight, flexible, and versatile to change in modalities \cite{zhu_multimodal_2023}.
 
 % CA module
 Upon the capture of interaction with the user, the textual input obtained from a chat section (although if obtained as speech from the microphone it must be first converted to text using automatic speech recognition (ASR) algorithm aided with the speech spectrogram) is passed on to the NLP stage, where the input goes to some pre-processing stages such as segmentation, tokenization, lemmatization, and PoS tagging. Then, the processed data is passed through the Natural Language Understanding (NLU) stage, to extract the intents and entities while turning the pre-processed data into a structured representation. Afterward, the data is passed on to the Dialogue Management stage, which aims to maintain and incorporate the context of the current and past conversations \cite{rizou_multilingual_2022}. Finally, by analyzing the contextual data, the structured representation of the user's input, and the emotion obtained from the fusion model, the Large Language Model (LLM) provides an accurate response which is converted into a user-readable format and presented back to the user.
-
-
-% SA & SER
-As previously detailed, the system could gather the speech or textual data resulting from ongoing, real-time, interactions with the conversational agent, complementing this, visual data could be obtained from the camera embedded in the mobile device, either in real-time or in video, capturing facial and body pose information. Hence, the multimodal ER module analyzes in parallel all the present modalities, starting with textual data being analyzed by an SA model to obtain the sentiment conveyed in the textual input, following preprocessing, feature extraction, and classification steps. Nowadays, SA is shifting from the early key-word comparisons approach to the adoption of ML (Support Vector Machines (SVM), Naive Bayes, Maximum Entropy), DL algorithms (CNN, ensemble of CNNs) and NNs (LSTM, DNNs), and even hybrid approaches \cite{hung_beyond_2023}.
-
-On the other hand, the speech input can be transcribed and analyzed with ASR algorithms, including deep learning techniques such as Hidden Markov Models (HMMs), Support Vector Machines (SVM), various types of Artificial Neural Networks (ANNs) such as Radial basis functions (RBF), Recurrent Neural Networks (RNNs), and Convolutional Neural Networks (CNNs), employed to extract para-linguistic information, such as intonation, duration, prosody, pitch, and rhythm, from the speech signal \cite{malik_automatic_2021}.
-
-On the other hand, the video input data, obtained from the CV algorithm that would capture,  also continuously and in real time, the user's macro-facial expressions and body pose are passed on to a FER network and BER to further extract the emotional data conveyed in both input types.
-
-The final stage to obtain a congregated emotion implies the usage of fusion models e.g. a late fusion model (also known as decision-level fusion) where firstly the emotion predictions are obtained from each network, and then the results based on these predictions are integrated into the final result through different decision-making methods e.g. average, majority, weighted, or other statistical strategies, this approach is usually lightweight, flexible, and versatile to change in modalities \cite{zhu_multimodal_2023}.
 
 
 
