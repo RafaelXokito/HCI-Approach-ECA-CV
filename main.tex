@@ -86,14 +86,14 @@ Convolutional Neural Networks (CNNs) are widely used for image-based tasks in HC
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.97\linewidth]{CNNArchitecture.jpg}
+\includegraphics[width=0.97\linewidth]{CNNArchitecture.pdf}
 \caption{An illustrative diagram of a CNN for emotion detection. The process begins with an input image of a smiling person and progresses through successive convolution and pooling layers for feature extraction. After flattening the feature maps, a fully connected network follows, leading to a final classification layer that categorizes the detected emotions into anger, sadness, fear, and happiness.}
 \label{fig:cnnarchitecture}
 \end{figure}
 
 Emotion detection, related to analyzing human expressions and classifying them into emotions, is often studied individually and encounters challenges in real-life scenarios. This paper addresses these challenges through a multi-modal approach to emotion detection, aiming to mitigate problems associated with individual analysis methods. In computer vision, it includes facial movements and body language analysis from images and videos. Non-visual domains use vocal nuances and text analysis to detect emotions. Different modalities present unique challenges and require specialized models for effective recognition \cite{Chul2018, Trigeorgis2016, Karna2020}.
 
-For Speech Emotion Recognition (SER), deep convolutional recurrent networks have proven effective, combining CNNs' feature extraction with Long Short-Term Memory (LSTM) networks' sequential data processing. Text-based emotion detection also employs LSTM-based models to interpret emotions from written language \cite{Trigeorgis2016, Karna2020}.
+For Speech Emotion Recognition (SER), deep convolutional recurrent networks have proven effective, gathering the spectrogram of the speech and feed a CNNs' for classification \cite{Badshah2017}. Text-based emotion detection employs Long Short-Term Memory (LSTM)-based models to interpret emotions from written language \cite{Trigeorgis2016, Karna2020}.
 
 In the context of HCI, conversational agents are really important by interacting with users through simulated voice and/or text messages. These agents can either be domain-specific or versatile in handling various interaction types. The effectiveness of conversational agents largely depends on their response delivery mechanisms, which include rule-based, retrieval-based, and generative-based approaches. Each approach has its unique implementation complexity and response generation capability \cite{aljaroodi_avatars_2019, fernandes_survey_2020, ramesh_survey_2017, mohamad_suhaili_service_2021}.
 
@@ -104,9 +104,22 @@ Fusion methods integrate information from various modalities by creating a vecto
 
 % Introduction of the proposed  solution:
 % 	[X] - Briefly restate the problem your solution aims to solve.
-% 	[-] - Introduce your multi-modal deep learning approach, emphasizing its novelty and potential benefits.
+% 	[X] - Introduce your multi-modal deep learning approach, emphasizing its novelty and potential benefits.
 % It's missing we emphasise the novelty and the potential benefits
-Empathy is a fundamental trait in ensuring realistic, natural, and meaningful interactions in the field of HCI, therefore this section will delve into the proposed HCI approach architecture consisting of six modules as detailed in Figure \ref{fig:approachArchitecture}. Early emotion recognition mainly focused on text or facial features alone, however, humans express emotions in a highly complex way, depending on both verbal and non-verbal cues like facial expression, behavior, voice, text, and physiological signals \cite{ezzameli_emotion_2023, zhu_multimodal_2023}. Therefore, this article proposes an architecture to diminish this issue, composed of a conversational agent module, to interact continuously with the user, and a multimodal emotion recognition module, where multiple modalities (text, audio, and video) are analyzed simultaneously with deep learning algorithms to better recognize human emotions and gathered together to a final emotion using a fusion model which capitalizes on the strengths of each modality and compensates for potential limitations in individual modalities. Therefore, an implementation of our proposed architecture can lead to a more engaging, empathic, and natural conversational experience with a more robust and accurate emotion recognition while being suitable for applications where natural communication involves text, speech, or visual cues simultaneously.
+Empathy is a fundamental trait in ensuring realistic, natural, and meaningful interactions, therefore in the context of HCI, the goal is to provide authentic and engaging interactions through the use of empathic conversational agents. The architecture proposed in this paper, as depicted in Figure \ref{fig:approachArchitecture}, is an integrated system designed to enhance these interactions. Previous approaches in emotion recognition have often been unimodal, isolating text or facial features, despite the inherently complex and multimodal nature of human emotional expression, which encompasses verbal and non-verbal cues such as voice, behavior, and physiological signals \cite{ezzameli_emotion_2023, zhu_multimodal_2023}. The proposed architecture addresses this complexity with a dual-component system: a conversational agent module that maintains an ongoing interaction with the user, and a multimodal emotion recognition module. This latter module employs deep learning algorithms to analyze multiple data streams (textual, auditory, and visual), in unison, improving the accuracy and robustness of emotion detection. The fusion model within this system synergizes the different modalities, enhancing the strengths and balancing the limitations of each. Therefore, an implementation of this architecture tries to achieve a more nuanced, empathic conversational experience that aligns closely with human communication, which inherently weaves together speech, text, and visual information.
+
+\begin{figure}[htb]
+	\centering
+	\includegraphics[width=0.97\linewidth]{approachArchitecture.pdf}
+	\caption{Schematic representation of the proposed HCI approach architecture. Illustrates the flow from multimodal input through sequential frames, speech spectrograms, and text to the empathic conversational agent. The process integrates temporal macro-facial and body emotion recognition, speech-based spectrogram emotion recognition, and sentiment analysis, leading to an empathic textual output generated by the fusion neural network and large language model.}
+	\label{fig:approachArchitecture}
+\end{figure}
+
+% Overview of the Multi-modal System:
+% 	[-] - Describe the overall architecture of your system.
+% 		Here we could address where the data could be gathered from (several possibilities).
+% 	[-] - Explain how it integrates different modalities (speech spectrogram, transcribed text, facial and body information) for emotion detection.
+%		It would be nice to emphasise deeply that we want to gather the spectrogram from the speech, that we are detecting Macro-Facial Emotions, that its needed to perform a Speech-to-Text and then sentiment analysis.
 
 % CA module
 Upon the capture of interaction with the user, the textual input obtained from a chat section (although if obtained as speech from the microphone it must be first converted to text using automatic speech recognition (ASR) algorithm aided with the speech spectrogram) is passed on to the NLP stage, where the input goes to some pre-processing stages such as segmentation, tokenization, lemmatization, and PoS tagging. Then, the processed data is passed through the Natural Language Understanding (NLU) stage, to extract the intents and entities while turning the pre-processed data into a structured representation. Afterward, the data is passed on to the Dialogue Management stage, which aims to maintain and incorporate the context of the current and past conversations \cite{rizou_multilingual_2022}. Finally, by analyzing the contextual data, the structured representation of the user's input, and the emotion obtained from the fusion model, the Large Language Model (LLM) provides an accurate response which is converted into a user-readable format and presented back to the user.
@@ -120,18 +133,8 @@ On the other hand, the speech input can be transcribed and analyzed with ASR alg
 On the other hand, the video input data, obtained from the CV algorithm that would capture,  also continuously and in real time, the user's macro-facial expressions and body pose are passed on to a FER network and BER to further extract the emotional data conveyed in both input types.
 
 The final stage to obtain a congregated emotion implies the usage of fusion models e.g. a late fusion model (also known as decision-level fusion) where firstly the emotion predictions are obtained from each network, and then the results based on these predictions are integrated into the final result through different decision-making methods e.g. average, majority, weighted, or other statistical strategies, this approach is usually lightweight, flexible, and versatile to change in modalities \cite{zhu_multimodal_2023}.
-\begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.97\linewidth]{approachArchitecture.jpg}
-	\caption{Multimodal emotion recognition framework using a branching neural network and large language model for enhanced empathic response in human-computer interaction}
-	\label{fig:approachArchitecture}
-\end{figure}
 
-% Overview of the Multi-modal System:
-% 	[-] - Describe the overall architecture of your system.
-% 		Here we could address where the data could be gathered from (several possibilities).
-% 	[-] - Explain how it integrates different modalities (speech spectrogram, transcribed text, facial and body information) for emotion detection.
-%		It would be nice to emphasise deeply that we want to gather the spectrogram from the speech, that we are detecting Macro-Facial Emotions.
+
 
 
 % Detailed Description of Each Module (Suggested methods, using kinda a Related Work of the topic it self):
