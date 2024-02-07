@@ -41,7 +41,7 @@
 Carla Mendes\inst{1}\orcidID{0000-0001-7138-7124} \and
 Nuno Costa\inst{1}\orcidID{0000-0002-2353-369X} \and
 Luis Frazão\inst{1}\orcidID{0000-0003-2571-7940} \and
-António Fdez Caballero\inst{2}\orcidID{0000-0002-8211-0398} \and
+António Fernández-Caballero\inst{2}\orcidID{0000-0002-8211-0398} \and
 António Pereira\inst{1,3}\orcidID{0000-0001-5062-1241}}
 %
 \authorrunning{Pereira, R et al.}
@@ -134,9 +134,9 @@ As previously detailed, the system is designed to predict emotions across variou
 
 % SA & SER
 % TODO -> Maybe complete the following paragraph.
-The analysis of textual data through a sentiment analysis model to determine the sentiment of the textual input. This process involves first extracting the features from the given textual input using n-grams (consecutive n terms in text), part-of-speech tagging, stemming, removal of stop words, conjunction and negation handling as proposed by Kaur et al.~\cite{kaur_survey_2017}, or even word embeddings (who represent words in a vector space by clustering words with similar meanings together) e.g Word2vec or GloVe as described by Wankhade et al.~\cite{wankhade_survey_2022}. Afterward, performing the sentiment classification, for example, using a 1D CNN classifier \cite{hung_beyond_2023}.
+The analysis of textual data through a sentiment analysis model to determine the sentiment of the textual input \cite{hajek_neural_2021}. This process involves first extracting the features from the given textual input using n-grams (consecutive n terms in text), part-of-speech tagging, stemming, removal of stop words, conjunction and negation handling as proposed by Kaur et al.~\cite{kaur_survey_2017}, or even word embeddings (who represent words in a vector space by clustering words with similar meanings together) e.g Word2vec or GloVe as described by Wankhade et al.~\cite{wankhade_survey_2022}. Afterward, performing the sentiment classification, for example, using a 1D CNN classifier \cite{hung_beyond_2023}.
 
-In the context of speech emotion recognition, possible approaches are preprocessing data through frame overlapping and windowing techniques to apply a hamming window to speech frames, thus minimizing discontinuities \cite{Ayadi2011}. Additionally, feature normalization is recommended to standardize features via z-score normalization. For the classification phase, the employment of models such as CNNs and \textcolor{red}{support vector machines} is considered for the analysis of speech patterns \cite{Badshah2017}.
+In the context of speech emotion recognition, possible approaches are preprocessing data through frame overlapping and windowing techniques to apply a hamming window to speech frames, thus minimizing discontinuities \cite{Ayadi2011, de_lope_hybrid_2022}. Additionally, feature normalization is recommended to standardize features via z-score normalization. For the classification phase, the employment of models such as CNNs and \textcolor{red}{support vector machines} is considered for the analysis of speech patterns \cite{Badshah2017}.
 
 % FER e BER (In BER context, there's no guarantee of the presence of the whole body in every input (dataset, and in real-life environment), so the predictions could vary based on that.)
 % In the context of FER and BER could be used only the facial and body landmarks (as a sequence, because of the temporal information). Or the whole frames information using, with a more complex and heavy but with excellent result NN.
