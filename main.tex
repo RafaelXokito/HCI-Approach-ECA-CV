@@ -19,7 +19,7 @@
 
 \usepackage{lineno}
 % Comment this to remove the line numbers
-%\linenumbers
+\linenumbers
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
@@ -105,6 +105,10 @@ In the context of HCI, conversational agents are really important by interacting
 As a type of generative-based conversational agent, LLMs are sophisticated algorithms designed to produce human-like language in response to prompts. They leverage vast amounts of text data and employ techniques like unsupervised learning to understand the statistical patterns of language. Through the state-of-the-art pipeline stages of pretraining, supervised fine-tuning, reward modeling, and reinforcement learning, LLMs excel in capturing intricate linguistic patterns, nuances, and semantic relationships with the aid of transformer networks. LLMs utilize complex algorithms such as Variational Autoencoders (VAEs), Generative Adversarial Networks (GANs), or autoregressive models to create new textual content mirroring the characteristics of the training data. Among the popular LLMs are ChatGPT, LLaMA, Bard, Falcon, and others \cite{Hai_LLM_2023}. LLMs, although powerful, usually are computationally intensive due to the architecture and the size of the pre-trained parameters (often surpassing billions of parameters), bringing the need for a finetuning approach that reduces memory usage, number of parameters, and improves performance such as QLoRA which reduces the average memory requirements of finetuning  LLaMA 65B parameter model from >780GB of GPU memory to <48GB without degrading the runtime or predictive performance \cite{dettmers_qlora_2023}. Similarly, LoRa reduces the number of trainable parameters by 10,000 times and GPU memory requirement by 3 times (compared to GPT-3 175B) \cite{hu_lora_2021}. 
 
 \textcolor{red}{Previous approaches in \textcolor{red}{emotion recognition} have often been unimodal, isolating text or facial features, despite the inherently complex and multimodal nature of human emotional expression, which encompasses verbal and non-verbal cues such as voice, behavior, and physiological signals, therefore emphasizing the relevance of a MER approach to tackle this issue \cite{ezzameli_emotion_2023, zhu_multimodal_2023}.}
+
+\section{Related Works}
+
+
 
 \section{Proposed Solution}
 \label{sec:solution}
